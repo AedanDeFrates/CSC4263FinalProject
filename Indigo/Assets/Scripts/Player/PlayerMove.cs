@@ -1,19 +1,22 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public bool isMoving;
+    public bool isMoving = false;
 
     public Rigidbody2D rb;
     public InputActionReference move;
     private PlayerCrouch playerCrouch;
+    private PlayerDash playerDash;
     private Vector2 moveInput;
 
     void Start()
     {
         playerCrouch = GetComponent<PlayerCrouch>();
+        playerDash = GetComponent<PlayerDash>();
     }
     private void OnEnable()
     {
@@ -29,6 +32,15 @@ public class PlayerMovement : MonoBehaviour
     } 
     void FixedUpdate()
     {
+        if(playerDash.isDashing)
+        {
+            return;
+        }
+        if(moveInput == Vector2.zero)
+        {
+            isMoving = false;
+        }
+        else isMoving = true;
         if(playerCrouch.crouchInput.action.IsPressed())
         {
             rb.linearVelocity = moveInput * playerCrouch.crouchSpeed;

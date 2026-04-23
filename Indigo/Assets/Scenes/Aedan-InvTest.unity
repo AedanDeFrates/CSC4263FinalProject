@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 1637717524}
   - component: {fileID: 1637717525}
   - component: {fileID: 1637717526}
+  - component: {fileID: 1637717527}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -380,6 +381,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
   interactionInput: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   InteractionRadius: {fileID: 2099850554}
+--- !u!114 &1637717527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637717515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9aed118f28db6808c58f66292715a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
+  dashSpeed: 15
+  dashDuration: 0.2
+  isDashing: 0
+  playerDash: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &1661209550
 GameObject:
   m_ObjectHideFlags: 0
