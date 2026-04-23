@@ -29,7 +29,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (interactionInput.action.WasPressedThisFrame())
         {
-            if (availableItems.itemList.Count > 0)
+            if (playerCrouch.isCrouching && availableItems.itemList.Count > 0)
             {
                 Debug.Log("interact");
                 Debug.Log("Nearby Items: " + string.Join(", ", availableItems.itemList));
