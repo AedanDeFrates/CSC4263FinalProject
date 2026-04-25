@@ -15,7 +15,7 @@ public class PlayerStamina : MonoBehaviour
 
     void Awake()
     {
-        currentStamina = maxStamina;
+        currentStamina = 0;
     }
 
     void Update()
@@ -40,11 +40,18 @@ public class PlayerStamina : MonoBehaviour
 
     public bool UseStamina(float amount)
     {
-        if (currentStamina < amount)
+        if(currentStamina == 0)
             return false;
-
-        currentStamina -= amount;
-        regenTimer = 0f;
+        else if(currentStamina < amount)
+        {
+            currentStamina = 0;
+            regenTimer = 0f;
+        }
+        else
+        {
+            currentStamina -= amount;
+            regenTimer = 0f;
+        }
 
         OnStaminaChanged?.Invoke(currentStamina, maxStamina);
         return true;
