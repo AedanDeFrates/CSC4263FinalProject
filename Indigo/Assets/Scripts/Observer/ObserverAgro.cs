@@ -8,6 +8,7 @@ public class ObserverAgro : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isAgro = true;
+            Debug.Log("agro entered");
         }
     }
     void OnTriggerExit2D(Collider2D collision)
@@ -15,6 +16,7 @@ public class ObserverAgro : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isAgro = false;
+            Debug.Log("agro exited");
         }
     }
 }

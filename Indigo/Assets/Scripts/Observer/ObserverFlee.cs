@@ -8,6 +8,7 @@ public class ObserverFlee : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             mustFlee = true;
+            Debug.Log("flee entered");
         }
     }
     void OnTriggerExit2D(Collider2D collision)
@@ -15,6 +16,7 @@ public class ObserverFlee : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             mustFlee = false;
+            Debug.Log("flee exited");
         }
     }
 }
