@@ -3,15 +3,15 @@ using System;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 10;
     public int startHealth = 4;
     public int currentHealth;
 
     public bool IsDead { get; private set; }
 
     // Events for UI / other systems
-    //public event Action<int, int> OnHealthChanged;
-    //public event Action OnDeath;
+    public event Action<int, int> OnHealthChanged;
+    public event Action OnDeath;
 
     void Awake()
     {
@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         IsDead = true;
-        //OnDeath?.Invoke();
+        OnDeath?.Invoke();
 
         Debug.Log("Player died");
 
