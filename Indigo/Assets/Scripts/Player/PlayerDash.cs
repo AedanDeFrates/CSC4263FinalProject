@@ -5,18 +5,20 @@ public class PlayerDash : MonoBehaviour
 {
     public float dashSpeed = 15f;
     public float dashDuration = 0.2f;
-
     public bool isDashing = false;
     private float dashTime;
+    private float staminaCost = 10f;
     private Vector2 dashDirection;
 
     private Rigidbody2D rb;
     public InputActionReference playerDash; 
     private PlayerMovement playerMovement;
+    private PlayerStamina playerStamina;
 
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        playerStamina = GetComponent<PlayerStamina>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -54,6 +56,9 @@ public class PlayerDash : MonoBehaviour
 
     void StartDash()
     {
+        if (!playerStamina.UseStamina(staminaCost))
+            return;
+
         isDashing = true;
         dashTime = dashDuration;
 
