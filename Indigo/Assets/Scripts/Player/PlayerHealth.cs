@@ -9,7 +9,6 @@ public class PlayerHealth : MonoBehaviour
 
     public bool IsDead { get; private set; }
 
-    // Events for UI / other systems
     public event Action<int, int> OnHealthChanged;
     public event Action OnDeath;
 
@@ -25,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        //OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -40,16 +39,21 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        //OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     private void Die()
     {
+        if (IsDead) return;
+
         IsDead = true;
         OnDeath?.Invoke();
 
         Debug.Log("Player died");
 
-        // Disable movement / play animation / reload scene etc.
+        // Disable player control
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<PlayerDash>().enabled = false;
+        GetComponent<PlayerInteract>().enabled = false;
     }
 }
