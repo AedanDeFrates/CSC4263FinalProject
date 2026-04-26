@@ -16,6 +16,10 @@ public PlayerHealth playerHealth;
 
         playerHealth.OnHealthChanged += UpdateHearts;
     }
+    void Update()
+    {
+        UpdateHearts(playerHealth.currentHealth, playerHealth.maxHealth);
+    } 
 
     void CreateHearts()
     {
