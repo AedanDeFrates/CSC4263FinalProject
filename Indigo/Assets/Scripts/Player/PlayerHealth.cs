@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using UnityEditor.Callbacks;
+using System.Numerics;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,8 +14,11 @@ public class PlayerHealth : MonoBehaviour
     public event Action<int, int> OnHealthChanged;
     public event Action OnDeath;
 
+    private Rigidbody2D rb;
+
     void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = startHealth;
     }
 
@@ -52,7 +57,9 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player died");
 
         // Disable player control
+        rb.linearVelocity = new UnityEngine.Vector2(0,0);
         GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<PlayerLook>().enabled = false;
         GetComponent<PlayerDash>().enabled = false;
         GetComponent<PlayerInteract>().enabled = false;
     }
