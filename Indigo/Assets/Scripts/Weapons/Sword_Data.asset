@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f67865f5250c70ba4d718ed0cd59ae, type: 3}
+  m_Name: Sword_Data
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  itemName: Sword
+  worldPrefab: {fileID: 5618966592616837178, guid: f728d2bdd0a6d17ec8803a5483e88fbb, type: 3}
+  equippedPrefab: {fileID: 4510776410722459498, guid: b31e79ad413f58141aaf7db9e820bcf2, type: 3}
+  weaponAnimations: {fileID: 9100000, guid: c38c85e585ba852178c07ffb40782d8c, type: 2}
+  damage: 1
