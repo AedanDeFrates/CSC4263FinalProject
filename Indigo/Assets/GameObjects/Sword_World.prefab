@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 738602021573698924}
   - component: {fileID: 1083163718854343954}
   - component: {fileID: 6735265476223784130}
+  - component: {fileID: -8054270354677727715}
   m_Layer: 0
   m_Name: Sword_World
   m_TagString: Item
@@ -129,3 +130,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &-8054270354677727715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618966592616837178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d8657492f691a18adac17fc89981f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponPickup
+  weaponData: {fileID: 11400000, guid: c5906a4c4bbda58e08f4e0336018a42d, type: 2}

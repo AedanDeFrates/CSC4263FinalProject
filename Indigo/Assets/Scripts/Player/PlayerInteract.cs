@@ -5,10 +5,9 @@ public class PlayerInteract : MonoBehaviour
 {
     public InputActionReference interactionInput;
     public GameObject InteractionRadius;
-
     private AvailableItems availableItems;
     private PlayerCrouch playerCrouch;
-
+    
     void Start()
     {
         availableItems = InteractionRadius.GetComponent<AvailableItems>();
@@ -31,10 +30,12 @@ public class PlayerInteract : MonoBehaviour
         {
             if (playerCrouch.isCrouching && availableItems.itemList.Count > 0)
             {
-                Debug.Log("interact");
-                Debug.Log("Nearby Items: " + string.Join(", ", availableItems.itemList));
-
                 GameObject item = availableItems.itemList[0];
+
+                WeaponPickup pickup = item.GetComponent<WeaponPickup>();
+                if(pickup == null) return;
+                GetComponent<ItemEquip>().Equip(pickup.weaponData);
+
                 availableItems.itemList.Remove(item);
                 Destroy(item);
             }

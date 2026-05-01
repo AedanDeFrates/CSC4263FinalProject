@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCrouch playerCrouch;
     private PlayerDash playerDash;
     private Vector2 moveInput;
+    
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveInput = move.action.ReadValue<Vector2>();
+        isMoving = moveInput.sqrMagnitude > 0.01f;
     } 
     void FixedUpdate()
     {
@@ -36,15 +38,12 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if(moveInput == Vector2.zero)
-        {
-            isMoving = false;
-        }
-        else isMoving = true;
+
         if(playerCrouch.crouchInput.action.IsPressed())
         {
             rb.linearVelocity = moveInput * playerCrouch.crouchSpeed;
         }
+
         else { rb.linearVelocity = moveInput * speed; }
     }
 }
