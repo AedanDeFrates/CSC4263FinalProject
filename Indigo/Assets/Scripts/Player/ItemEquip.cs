@@ -3,8 +3,9 @@ using UnityEngine;
 public class ItemEquip : MonoBehaviour
 {
     public Transform weaponSocket;
+    public Animator weaponSocketAnimator;
 
-    private GameObject currentWeapon;
+    public GameObject currentWeapon;
     private WeaponData currWeaponData;
 
     public void Equip(WeaponData data)
@@ -12,6 +13,8 @@ public class ItemEquip : MonoBehaviour
         Unequip();
 
         currWeaponData = data;
+        
+        weaponSocketAnimator.runtimeAnimatorController = data.weaponAnimations;
 
         currentWeapon = Instantiate(
             data.equippedPrefab,

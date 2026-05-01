@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Sword
   worldPrefab: {fileID: 5618966592616837178, guid: f728d2bdd0a6d17ec8803a5483e88fbb, type: 3}
   equippedPrefab: {fileID: 4510776410722459498, guid: b31e79ad413f58141aaf7db9e820bcf2, type: 3}
+  weaponAnimations: {fileID: 9100000, guid: c38c85e585ba852178c07ffb40782d8c, type: 2}
   damage: 1
